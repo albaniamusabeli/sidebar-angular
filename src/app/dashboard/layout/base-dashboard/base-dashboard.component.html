@@ -1,3 +1,10 @@
-<p>dashboard-layout works!</p>
 
-<router-outlet></router-outlet>
+<div id="base_layout">
+    <app-sidebar></app-sidebar>
+
+    <!-- Router para cada página -->
+     <div id="main_pages">
+        <router-outlet></router-outlet>
+     </div>
+
+</div>

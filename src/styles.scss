@@ -20,18 +20,20 @@ html {
 }
 
 body {
-    min-height: 100vh;
-    min-height: 100dvh;
+    height: 100%;
     background-color: var(--base-clr);
     color: var(--text-clr);
+}
 
+#base_layout {
     display: grid;
     grid-template-columns: auto 1fr;
+    height: 100dvh;
 }
 
 #sidebar {
     box-sizing: border-box;
-    height: 100vh;
+    height: 100%;
     width: 250px;
     padding: 5px 1em;
     background-color: var(--base-clr);
@@ -167,7 +169,7 @@ body {
     background-color: var(--hover-clr);
 }
 
-main {
+#main_pages {
     padding: min(30px, 7%);
 
     p {
