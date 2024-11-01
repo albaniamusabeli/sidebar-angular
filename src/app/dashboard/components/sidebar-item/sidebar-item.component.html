@@ -1,6 +1,27 @@
-<li routerLinkActive="active">
-    <a [routerLink]="path()">
+@if (submenu()) {
+<li>
+    <button (click)="onClickSubmenu()" class="dropdown-btn" [ngClass]="{'rotate':toggleSubmenu()}">
         <i class="{{ icon() }}" style="font-size: 1.5rem;"></i>
         <span>{{ title() }}</span>
-    </a>
+        <!-- Arrow -->
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
+            <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z" />
+        </svg>
+    </button>
+    <ul class="sub-menu" [ngClass]="{'show':toggleSubmenu()}">
+        <div>
+            @for (subItem of submenu(); track $index) {
+            <li routerLinkActive="active"><a [routerLink]="subItem.path">{{ subItem.title }}</a></li>
+            }
+        </div>
+    </ul>
 </li>
+}
+@else {
+    <li routerLinkActive="active">
+        <a [routerLink]="path()">
+            <i class="{{ icon() }}" style="font-size: 1.5rem;"></i>
+            <span>{{ title() }}</span>
+        </a>
+    </li>
+}
